@@ -12,7 +12,7 @@ const app = new Vue({
 
   data: {
     mailList: [],
-    isLoading: true
+    isLoading: true,
     
   },
 
@@ -23,16 +23,23 @@ const app = new Vue({
         .then((res) =>{
           // console.log(res.data)          
           this.mailList.push(res.data.response);
-          // console.log(this.mailList)
+          if(i===9){
           this.isLoading = false;
+          }
+          // console.log(this.mailList)
         })
       }
-      
+    },
 
-    }
-  },
+    // setTimeForLoading(){
+    //   setTimeout(() => {
+    //       this. generaRandomMails();
+    //   },2000);
+
+    },
+
 
   mounted(){
-    this.generaRandomMails();
+    this. generaRandomMails();
   }
 })
